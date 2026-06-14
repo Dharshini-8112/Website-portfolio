@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  
+  --color-brand-blue: #1D4ED8; /* Primary Royal Blue */
+  --color-brand-purple: #2563EB; /* Secondary Vibrant Blue */
+  --color-brand-cyan: #60A5FA; /* Accent Light Blue */
+  --color-brand-dark: #FFFFFF; /* Light Base Background */
+  --color-brand-light: #0F172A; /* Dark Slate Text */
+  
+  /* Deep Navy-Purple Luxury theme colors */
+  --color-navy-deep: #F8FAFC;
+  --color-navy-darker: #EDF2F7;
+  --color-navy-light: #F1F5F9;
+  --color-navy-glass: rgba(255, 255, 255, 0.75);
+  
+  --color-purple-royal: #1D4ED8;
+  --color-purple-vibrant: #2563EB;
+  --color-purple-lavender: #3B82F6;
+  
+  --color-blue-glow: #2563EB;
+  --color-purple-glow: #60A5FA;
+}
+
+/* Base Body Styling */
+body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EDF2F7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.2); /* Royal Blue */
+  border-radius: 9999px;
+  border: 2px solid #EDF2F7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.45);
+}
+
+/* Premium Glassmorphism Panel (containers, sections) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  box-shadow: 0 10px 40px 0 rgba(15, 23, 42, 0.04);
+}
+
+/* Premium Glassmorphism Card (interactive cards) - 24px rounded-3xl corners */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(37, 99, 235, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: 0 16px 36px 0 rgba(37, 99, 235, 0.06);
+  transform: translateY(-6px);
+}
+
+/* Sticky Glass Navbar styling */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.06);
+}
+
+/* Grid overlay pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+}
+
+/* Custom background mesh */
+.mesh-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(96, 165, 250, 0.05) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(37, 99, 235, 0.02) 0px, transparent 60%),
+    radial-gradient(at 0% 100%, rgba(96, 165, 250, 0.05) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.05) 0px, transparent 55%);
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Floating profile orbits */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 25s linear infinite;
+}
+
+/* Floating animation for icons/badges */
+@keyframes float-badge {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.animate-float-badge {
+  animation: float-badge 6s ease-in-out infinite;
+}
+
+/* Glowing typography & buttons */
+.glow-text {
+  text-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.35);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+/* Timeline components styling */
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, #1D4ED8, #2563EB, #60A5FA);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .timeline-line::before {
+    left: 20px;
+  }
+}
+
+/* Typography headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
